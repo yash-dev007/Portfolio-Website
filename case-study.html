@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Case Study | Creative Portfolio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D46D4D",
+                        "primary-hover": "#d9551a",
+                        "background-light": "#F9F7F2",
+                        "background-dark": "#121212",
+                        charcoal: "#1A1A1A",
+                        "muted-gray": "#666666",
+                        "border-sep": "#e7d7cf",
+                    },
+                    fontFamily: {
+                        display: ["Instrument Serif", "serif"],
+                        newsreader: ["Newsreader", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                        xl: '1.5rem',
+                        full: "9999px"
+                    },
+                    animation: {
+                        'ken-burns': 'kenburns 20s ease infinite alternate',
+                        'fade-up': 'fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'pulse-dot': 'pulseDot 2s infinite',
+                        'draw-line': 'drawLine 3s ease-out forwards',
+                        'gradient-pulse': 'gradientPulse 8s ease infinite',
+                    },
+                    keyframes: {
+                        kenburns: {
+                            '0%': { transform: 'scale(1) translate(0, 0)' },
+                            '100%': { transform: 'scale(1.15) translate(-2%, -2%)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseDot: {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(212, 109, 77, 0.4)' },
+                            '50%': { transform: 'scale(1.2)', boxShadow: '0 0 0 10px rgba(212, 109, 77, 0)' },
+                        },
+                        drawLine: {
+                            '0%': { height: '0%' },
+                            '100%': { height: '100%' },
+                        },
+                        gradientPulse: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .reveal-on-scroll { opacity: 0; }
+            .reveal-on-scroll.active { animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+            .timeline-line-grow { height: 0; transition: height 2s ease-out; }
+            .form-underline {
+                border: none; border-bottom: 1px solid #d1d5db; background-color: transparent !important;
+                padding-left: 0; padding-right: 0; border-radius: 0;
+            }
+            .form-underline:focus { outline: none; box-shadow: none; border-bottom-color: var(--primary-orange); }
+            .map-tint { filter: sepia(0.4) saturate(1.5) hue-rotate(-20deg) contrast(1.1); }
+        }
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+        
+        .pulse-shadow {
+            box-shadow: 0 0 0 0 rgba(212, 109, 77, 0.7);
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(212, 109, 77, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 109, 77, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 109, 77, 0); }
+        }
+        .gradient-canvas {
+            background: linear-gradient(-45deg, #121212, #3d2315, #D46D4D, #1A1A1A);
+            background-size: 400% 400%;
+            animation: gradientPulse 15s ease infinite;
+        }
+
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif-font { font-family: 'Instrument Serif', serif; }
+        .newsreader-font { font-family: 'Newsreader', serif; }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-charcoal dark:text-gray-100 transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="text-2xl font-display italic font-bold">Yash Patil</a>
+            </div>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+                <a class="text-sm font-medium text-primary transition-colors" href="projects.html">Work</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
+                <a class="bg-charcoal dark:bg-gray-100 dark:text-charcoal text-white px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-all"
+                    href="contact.html">Get in touch</a>
+            </div>
+            <button class="md:hidden material-symbols-outlined text-3xl">menu</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- Featured Work / Case Study Module (from Detailed_Project_Case_Study_Page) -->
+        <section id="work"
+            class="pt-20 pb-32 bg-primary/5 dark:bg-primary/10 border-b border-gray-200 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-6 text-center mb-16">
+                <!-- Back arrow -->
+                <div class="flex justify-center mb-6">
+                    <a href="projects.html"
+                        class="flex items-center gap-2 text-primary hover:text-primary-hover transition-colors font-medium">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                        Back to Works
+                    </a>
+                </div>
+                <!-- <span class="material-symbols-outlined text-4xl mb-6 text-primary">draw</span> -->
+                <h2 class="text-5xl md:text-6xl mb-6 font-display">Case Study</h2>
+            </div>
+
+            <!-- Project Intro & Metadata -->
+            <div class="max-w-6xl mx-auto px-6 pb-12 grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-8">
+                    <h1 class="text-5xl md:text-6xl font-semibold leading-[1.1] tracking-tight mb-8 font-newsreader">
+                        Revolutionizing E-commerce UX for Global Fashion
+                    </h1>
+                    <p class="text-xl md:text-2xl text-muted-gray leading-relaxed font-light font-sans">
+                        A comprehensive end-to-end redesign for Moda Style, focusing on mobile-first accessibility and
+                        intuitive visual storytelling to bridge the gap between digital browsing and physical luxury.
+                    </p>
+                </div>
+                <div class="lg:col-span-4 flex flex-col gap-8">
+                    <div class="grid grid-cols-2 gap-y-8 border-t border-primary/20 pt-8 font-sans">
+                        <div>
+                            <p class="text-muted-gray text-xs uppercase tracking-widest font-bold mb-2">Role</p>
+                            <p class="text-lg font-medium">Lead Product Designer</p>
+                        </div>
+                        <div>
+                            <p class="text-muted-gray text-xs uppercase tracking-widest font-bold mb-2">Duration</p>
+                            <p class="text-lg font-medium">4 Months</p>
+                        </div>
+                        <div>
+                            <p class="text-muted-gray text-xs uppercase tracking-widest font-bold mb-2">Tools</p>
+                            <p class="text-lg font-medium">Figma, Framer, React</p>
+                        </div>
+                        <div>
+                            <p class="text-muted-gray text-xs uppercase tracking-widest font-bold mb-2">Client</p>
+                            <p class="text-lg font-medium">Moda Style</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Solution Visuals -->
+            <div class="max-w-6xl mx-auto px-6 mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="h-[1px] w-12 bg-primary"></span>
+                            <span class="text-primary font-bold tracking-widest uppercase text-xs">The Solution</span>
+                        </div>
+                        <h3 class="text-4xl font-bold mb-6 font-display">A frictionless bridge to luxury.</h3>
+                        <p class="text-lg text-muted-gray mb-8 leading-relaxed font-sans">
+                            We implemented a "Contextual Discovery" engine that learns from user behavior to present
+                            items not just by category, but by aesthetic affinity and lifestyle context.
+                        </p>
+                        <ul class="space-y-4 font-sans">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                <span>Zero-latency checkout flow integration.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                <span>Immersive video-first product galleries.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                <span>Adaptive dark/light mode for late-night shopping.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        class="rounded-xl overflow-hidden shadow-2xl bg-white border border-gray-100 dark:border-gray-800">
+                        <img alt="Mobile App Interface" class="w-full"
+                            data-alt="Modern mobile app UI showcasing fashion categories"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVBOKXHEEHOyYJDCNVYPoVtrqjobLsnsAccW1gC6gTHE95BLnmfqYYrUrFjdgbou8PraT-MV3HakMxSshvRMqi7Q6Yo9vqV1tyHUAkZZ30_qmdxI3xEniEsmoGHqNAoijHPsKx1ElVimuLgPabgmt8l3i5VOtNXkxKsJJq_jsH_FooB1CWvoTZA0pRfT3dgz5BLowu-NV_IM66hfTod2ZiyL5VjgpHw3tycOV4crlDXXu5e5PL_jWgGHdRu-2Fx6JOFAr5ApYPIrRz" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="max-w-6xl mx-auto px-6 mt-20 pt-16 border-t border-primary/10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    <div>
+                        <p class="text-5xl font-bold text-primary mb-2 font-display">45%</p>
+                        <p class="text-muted-gray uppercase tracking-widest text-xs font-bold font-sans">Increase in
+                            Conversion</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-bold text-primary mb-2 font-display">1.2s</p>
+                        <p class="text-muted-gray uppercase tracking-widest text-xs font-bold font-sans">Avg. Page Load
+                            Time</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl font-bold text-primary mb-2 font-display">+120%</p>
+                        <p class="text-muted-gray uppercase tracking-widest text-xs font-bold font-sans">Mobile
+                            Engagement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="bg-charcoal text-gray-400 pt-32 pb-16 dark:bg-zinc-950">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-16 mb-32">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="text-2xl font-display text-white italic font-bold mb-8">Yash Patil</div>
+                    <p class="text-sm leading-relaxed max-w-xs font-sans">Software Developer building scalable AI
+                        systems and engaging web experiences.</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Capabilities</h5>
+                    <ul class="space-y-4 text-sm font-sans">
+                        <li><span class="text-gray-400">Python</span></li>
+                        <li><span class="text-gray-400">AI Integration</span></li>
+                        <li><span class="text-gray-400">Web Development</span></li>
+                        <li><span class="text-gray-400">C Programming</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Links</h5>
+                    <ul class="space-y-4 text-sm font-sans">
+                        <li><a class="hover:text-primary transition-colors" href="https://github.com/yash-dev007"
+                                target="_blank">GitHub</a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="https://www.linkedin.com/in/yash-patil-4a4aa329a" target="_blank">LinkedIn</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-colors" href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Contact</h5>
+                    <ul class="space-y-4 text-sm font-sans flex gap-6 mt-4">
+                        <li><a class="hover:text-primary transition-colors" href="https://github.com/yash-dev007"
+                                target="_blank"><span class="material-symbols-outlined text-3xl">public</span></a></li>
+                        <li><a class="hover:text-primary transition-colors" href="mailto:yashpatil76317@gmail.com"><span
+                                    class="material-symbols-outlined text-3xl">alternate_email</span></a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="https://www.linkedin.com/in/yash-patil-4a4aa329a" target="_blank"><span
+                                    class="material-symbols-outlined text-3xl">share</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800 gap-8 font-sans">
+                <div class="text-xs uppercase tracking-widest">© 2024 Yash Patil — All rights reserved
+                </div>
+                <div class="flex gap-8">
+                    <a class="text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Privacy</a>
+                    <a class="text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button
+        class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-white dark:bg-zinc-800 shadow-2xl flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform active:scale-95 z-50"
+        onclick="document.documentElement.classList.toggle('dark')">
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block text-white">light_mode</span>
+    </button>
+
+</body>
+
+</html>

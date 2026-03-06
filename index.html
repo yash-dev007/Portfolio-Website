@@ -1,279 +1,429 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yash Patil - Web Developer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+<html class="scroll-smooth" lang="en">
 
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Creative Portfolio | Minimalist Design</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@300;400;500;600&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D46D4D",
+                        "background-light": "#F9F7F2",
+                        "background-dark": "#121212",
+                        "charcoal": "#1A1A1A",
+                        "muted-gray": "#666666",
+                    },
+                    fontFamily: {
+                        display: ["Instrument Serif", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                        'xl': '1.5rem',
+                    },
+                    animation: {
+                        'ken-burns': 'kenburns 20s ease infinite alternate',
+                        'fade-up': 'fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'pulse-dot': 'pulseDot 2s infinite',
+                        'draw-line': 'drawLine 3s ease-out forwards',
+                        'gradient-pulse': 'gradientPulse 8s ease infinite',
+                    },
+                    keyframes: {
+                        kenburns: {
+                            '0%': { transform: 'scale(1) translate(0, 0)' },
+                            '100%': { transform: 'scale(1.15) translate(-2%, -2%)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseDot: {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(212, 109, 77, 0.4)' },
+                            '50%': { transform: 'scale(1.2)', boxShadow: '0 0 0 10px rgba(212, 109, 77, 0)' },
+                        },
+                        drawLine: {
+                            '0%': { height: '0%' },
+                            '100%': { height: '100%' },
+                        },
+                        gradientPulse: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @layer utilities {
+            .reveal-on-scroll { opacity: 0; }
+            .reveal-on-scroll.active { animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        }
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+        
+        .pulse-shadow {
+            box-shadow: 0 0 0 0 rgba(212, 109, 77, 0.7);
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(212, 109, 77, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 109, 77, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 109, 77, 0); }
+        }
+        .gradient-canvas {
+            background: linear-gradient(-45deg, #121212, #3d2315, #D46D4D, #1A1A1A);
+            background-size: 400% 400%;
+            animation: gradientPulse 15s ease infinite;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        .serif-font {
+            font-family: 'Instrument Serif', serif;
+        }
+    </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Yash Patil</a>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-charcoal dark:text-gray-100 transition-colors duration-300">
+    <nav
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="text-2xl font-display italic font-bold">Yash Patil</a>
+            </div>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="projects.html">Work</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
+                <a class="bg-charcoal dark:bg-gray-100 dark:text-charcoal text-white px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-all"
+                    href="contact.html">Get in touch</a>
+            </div>
+            <button class="md:hidden material-symbols-outlined text-3xl">menu</button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="floating-elements">
-            <div class="floating-element">
-                <i class="fas fa-code"></i>
-            </div>
-            <div class="floating-element">
-                <i class="fas fa-laptop-code"></i>
-            </div>
-            <div class="floating-element">
-                <i class="fas fa-mobile-alt"></i>
-            </div>
-            <div class="floating-element">
-                <i class="fas fa-database"></i>
-            </div>
-            <div class="floating-element">
-                <i class="fas fa-rocket"></i>
-            </div>
-        </div>
-        <div class="hero-content">
-            <h1>Yash Patil</h1>
-            <p class="subtitle">Full-Stack Web Developer</p>
-            <p class="description">I create beautiful, responsive websites and web applications that deliver exceptional user experiences. Passionate about clean code, modern technologies, and solving complex problems with elegant solutions.</p>
-            <div class="cta-buttons">
-                <a href="#projects" class="cta-button primary">View My Work</a>
-                <a href="#contact" class="cta-button secondary">Get In Touch</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Who I Am</h3>
-                    <p>Hi, I'm Yash Patil, a passionate and dedicated developer with a strong interest in AI, Data Science, and Web Development. I'm currently pursuing my B.Tech and actively building real-world projects that blend creativity with technology.</p>
-                    <p>With hands-on experience in HTML, CSS, JavaScript, and frameworks like React, I love crafting sleek, responsive websites. I'm also exploring the world of AI & Machine Learning, and constantly sharpening my skills in Python, data analysis, and model development.</p>
-                    <p>Beyond coding, I'm a core design member of E-Cell MET, where I contribute to events, startup initiatives, and pitch competitions. I enjoy learning new tools, solving problems, and pushing the boundaries of what's possible.</p>
+    <section class="relative pt-20 pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="z-10">
+                <h1 class="text-7xl md:text-8xl leading-[0.9] mb-8 animate-fade-in">
+                    Meet your <br /> thinking <br /> <span class="italic text-primary">partner</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-muted-gray dark:text-gray-400 mb-10 max-w-lg leading-relaxed">
+                    Tackle any big, bold, bewildering challenge with a collaborative approach to design and strategy.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="relative flex-grow max-w-md">
+                        <input
+                            class="w-full h-14 pl-6 pr-32 rounded-full border-gray-300 dark:border-gray-700 bg-white dark:bg-zinc-900 focus:ring-primary focus:border-primary"
+                            placeholder="How can I help you today?" type="text" />
+                        <button
+                            class="absolute right-1.5 top-1.5 bottom-1.5 bg-primary text-white px-6 rounded-full font-medium text-sm hover:brightness-110 transition-all">
+                            Ask Me
+                        </button>
+                    </div>
                 </div>
-                <div class="about-image">
-                    <div class="profile-container">
-                        <div class="profile-glow"></div>
-                        <div class="floating-orbs">
-                            <div class="orb"></div>
-                            <div class="orb"></div>
-                            <div class="orb"></div>
-                            <div class="orb"></div>
-                        </div>
-                        <div class="particle-trail">
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                            <div class="particle"></div>
-                        </div>
-                        <img src="./assets/aboutimg.jpg" alt="Yash Patil" class="profile-img">
+                <div class="mt-8 flex gap-6 text-sm text-muted-gray dark:text-gray-500">
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-lg">edit</span>
+                        Strategy</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-lg">palette</span>
+                        Design</span>
+                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-lg">code</span>
+                        Development</span>
+                </div>
+            </div>
+            <div class="relative flex justify-center items-center">
+                <div class="relative w-full aspect-square max-w-lg">
+                    <img alt="Abstract fluid design" class="w-full h-full object-contain opacity-80 dark:invert"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuArBQCirthTcUYSJccuNBvlcGdr_URwyTcYKhU9uFlcJ8afOHt82mO8Wd42NZ8SIjFBd8zJ4hDTu1ea-39RRVybsNRun-I7G5UqLCW07S7ekQJUlLwoQ-L9bhi6KIWYcDlI_1zDya4ux4I5OwWl2ndF_EO8glIUSN6INvm1ClHiHYln8crd9us290sGUWb52ZA_FDBLhZkhBaHKQv-U4dfpVGWA6vmaGHKkwPrX9t6a6lBXpOdQmsNYDzl2BkpNp9Q8IgbyQQw07mXu" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-tr from-background-light dark:from-background-dark via-transparent to-transparent pointer-events-none">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="section skills" id="skills">
-        <div class="container">
-            <h2 class="section-title">My Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <h3>Frontend Development</h3>
-                    <p>HTML5, CSS3, JavaScript, React</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Backend Development</h3>
-                    <p>Python</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Database Management</h3>
-                    <p>MySQL, PostgreSQL</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fab fa-aws"></i>
-                    </div>
-                    <h3>Cloud & DevOps</h3>
-                    <p>AWS, Git</p>
+    <section class="py-20 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-zinc-950 reveal-on-scroll">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col items-center text-center max-w-2xl mx-auto mb-16">
+                <span class="material-symbols-outlined text-4xl mb-6 text-primary">auto_awesome</span>
+                <h2 class="text-4xl md:text-5xl mb-4">The partner for problem solvers</h2>
+                <p class="text-muted-gray dark:text-gray-400">Available for remote collaboration across all timezones.
+                </p>
+                <div class="flex gap-4 mt-8">
+                    <span
+                        class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium hover:bg-gray-50 dark:hover:bg-zinc-900 transition-colors cursor-default">Strategy</span>
+                    <span
+                        class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium hover:bg-gray-50 dark:hover:bg-zinc-900 transition-colors cursor-default">Identity</span>
+                    <span
+                        class="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium hover:bg-gray-50 dark:hover:bg-zinc-900 transition-colors cursor-default">Digital</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="section projects" id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-shopping-cart"></i>
+    <section class="py-32 bg-background-light dark:bg-background-dark reveal-on-scroll" id="services">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24">
+            <div class="space-y-16">
+                <div class="group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span
+                            class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">lightbulb</span>
+                        <h3 class="text-3xl">Break down problems together</h3>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Portfolio Website</h3>
-                        <p class="project-description">This portfolio website is built using HTML, CSS, and JavaScript to showcase my skills, projects, and passion for web development. It features a clean, responsive design with interactive elements, reflecting my dedication to both creativity and functionality.
-</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
+                    <p class="text-muted-gray dark:text-gray-400 text-lg leading-relaxed max-w-sm">
+                        I build on your ideas, expand on your logic, and simplify complexity one step at a time.
+                    </p>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-tasks"></i>
+                <div class="group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span
+                            class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">handyman</span>
+                        <h3 class="text-3xl">Tackle your toughest work</h3>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Task Management App</h3>
-                        <p class="project-description">A collaborative task management application with real-time updates and team collaboration features.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">Socket.io</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
+                    <p class="text-muted-gray dark:text-gray-400 text-lg leading-relaxed max-w-sm">
+                        Expert-level collaboration on the things you need to get done — from coding to analysis.
+                    </p>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
+                <div class="group">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span
+                            class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">explore</span>
+                        <h3 class="text-3xl">Explore what's next</h3>
                     </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Analytics Dashboard</h3>
-                        <p class="project-description">A comprehensive analytics dashboard with interactive charts and real-time data visualization.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">FastAPI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                    </div>
+                    <p class="text-muted-gray dark:text-gray-400 text-lg leading-relaxed max-w-sm">
+                        An expert in your pocket, collaborating with you to expand what you can build on your own.
+                    </p>
                 </div>
+            </div>
+            <div
+                class="bg-primary/5 dark:bg-primary/10 rounded-3xl p-12 flex items-center justify-center border border-primary/10 group overflow-hidden">
+                <img alt="Visual representation of services"
+                    class="rounded-xl shadow-2xl rotate-2 group-hover:rotate-0 group-hover:scale-105 transition-all duration-700"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBSOJ0AaC_JFjNDtH3TR3MBVFz5SUUY7gQy37P_3TlP8rsmHIZ23a7wes37gwRyvxAWxwPRic2hocLUrsYOG5YwNxnZW1RqGUMDe9Ltfs2DOQOsXBa0fq2kNX9lodCELlYYdeC2Zt_Rr2a8unm1G3xkcsakMF-nJu8ZNEyFDUdirA2Ht_zf8BJCH9UilYDp4LDF09lgEtWjYvnv5_f5T0xAEybj6bjH_ofb70n5UPcYZWWwpWNEyEOQQgBgS2EoatcJuws8yI3oZLg" />
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+    <section class="py-32 bg-white dark:bg-zinc-950 reveal-on-scroll" id="work">
+        <div class="max-w-7xl mx-auto px-6 text-center mb-20">
+            <span class="material-symbols-outlined text-4xl mb-6 text-primary">draw</span>
+            <h2 class="text-5xl md:text-6xl mb-6">How we can build together</h2>
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button
+                    class="px-6 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-sm font-medium bg-background-light dark:bg-background-dark">Design</button>
+                <button
+                    class="px-6 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-sm font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">Code</button>
+                <button
+                    class="px-6 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-sm font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">Brand</button>
+                <button
+                    class="px-6 py-2 rounded-full border border-gray-200 dark:border-gray-800 text-sm font-medium hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors">Strategy</button>
+            </div>
+            <a href="projects.html" class="block">
+                <div
+                    class="relative group cursor-pointer overflow-hidden rounded-[2.5rem] bg-primary aspect-[16/9] flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <div class="absolute inset-0 opacity-40 mix-blend-overlay">
+                        <img alt="Case study background"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPVvlnE3-eK2JtrBTip7joUwhCkrXsnjRFmi5VgjUgkmbcKxWz825kWe1M11G3_piU2FXsaRAcjOjntQ1183_jMVgj7Ub9cziqg8WLI3JgSP6TJjI-mNuxxhY3Y_3aGJDG3YyRf4FAZXUfWQaOVbc6rccblx40C_2Koh_ul6V2bDyTIkFmBH241ZB9VuJdfQgFybGEStFS3dmRUIh4u2IxHCA3Ocz9yvqqZ2cUroVPjGXS7x4nSYY_YgXHm_ysePlKqG9LUdmQxi0u" />
+                    </div>
+                    <div
+                        class="relative bg-white dark:bg-zinc-900 w-3/4 h-3/4 rounded-2xl shadow-2xl p-12 text-left flex flex-col justify-between group-hover:shadow-primary/50 transition-shadow">
                         <div>
-                            <h4>Email</h4>
-                            <p>yashpatil76317@gmail.com</p>
+                            <span class="text-xs font-bold tracking-widest uppercase text-primary">Case Study
+                                2024</span>
+                            <h3 class="text-5xl mt-4 leading-tight group-hover:text-primary transition-colors">
+                                Revitalizing the Digital Identity for Future Systems</h3>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+91 8265076317</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Nashik, India</p>
+                        <div class="grid grid-cols-2 gap-8 border-t border-gray-100 dark:border-gray-800 pt-8">
+                            <div>
+                                <p class="text-xs font-semibold text-muted-gray uppercase mb-1">Impact</p>
+                                <p class="text-xl">+140% User Engagement</p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-semibold text-muted-gray uppercase mb-1">Scope</p>
+                                <p class="text-xl">UI/UX &amp; Brand Design</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+            </a>
+
+            <div class="grid md:grid-cols-2 gap-12 mt-20 text-left">
+                <div class="flex flex-col">
+                    <h4 class="text-2xl mb-4 italic">Collaborative Learning</h4>
+                    <p class="text-muted-gray dark:text-gray-400">Deep dives into complex domains, distilling insights
+                        into actionable design systems that scale with your business needs.</p>
+                </div>
+                <div class="flex flex-col">
+                    <p class="text-muted-gray dark:text-gray-400">Every project is a partnership. We don't just deliver
+                        files; we embed within your team to ensure the vision is realized exactly as intended.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="social-links">
-                <a href="#" class="social-link">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
+    <section class="py-32 bg-background-light dark:bg-background-dark reveal-on-scroll">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <span class="material-symbols-outlined text-4xl mb-6 text-primary">cloud_done</span>
+                <h2 class="text-5xl md:text-6xl">Portfolio Modules</h2>
             </div>
-            <p>&copy; 2025 Yash Patil. All rights reserved.</p>
+            <div class="grid gap-6">
+                <div
+                    class="group bg-white dark:bg-zinc-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row justify-between items-center gap-8 reveal-on-scroll animate-delay-1">
+                    <div class="md:w-1/3">
+                        <h3 class="text-4xl mb-2">The Catalyst</h3>
+                        <p class="text-muted-gray dark:text-gray-400 font-medium italic">High-impact brand sprint</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <p class="text-muted-gray dark:text-gray-400">Perfect for startups looking to find their voice
+                            quickly. 2-week intensive focus on identity and core messaging.</p>
+                    </div>
+                    <div class="md:w-1/6 text-right">
+                        <a href="case-study.html"
+                            class="material-symbols-outlined text-muted-gray group-hover:text-primary transition-colors text-4xl leading-none w-auto inline-block group-hover:translate-x-2">arrow_forward</a>
+                    </div>
+                </div>
+                <div
+                    class="group bg-white dark:bg-zinc-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row justify-between items-center gap-8 reveal-on-scroll animate-delay-2">
+                    <div class="md:w-1/3">
+                        <h3 class="text-4xl mb-2">The Architect</h3>
+                        <p class="text-muted-gray dark:text-gray-400 font-medium italic">Complex system design</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <p class="text-muted-gray dark:text-gray-400">Full-scale digital transformation and UI design
+                            systems for enterprise applications and SaaS products.</p>
+                    </div>
+                    <div class="md:w-1/6 text-right">
+                        <a href="case-study.html"
+                            class="material-symbols-outlined text-muted-gray group-hover:text-primary transition-colors text-4xl leading-none w-auto inline-block group-hover:translate-x-2">arrow_forward</a>
+                    </div>
+                </div>
+                <div
+                    class="group bg-white dark:bg-zinc-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row justify-between items-center gap-8 reveal-on-scroll animate-delay-3">
+                    <div class="md:w-1/3">
+                        <h3 class="text-4xl mb-2">The Artisan</h3>
+                        <p class="text-muted-gray dark:text-gray-400 font-medium italic">Boutique experiences</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <p class="text-muted-gray dark:text-gray-400">Immersive storytelling and high-fidelity web
+                            experiences that prioritize aesthetics and interaction.</p>
+                    </div>
+                    <div class="md:w-1/6 text-right">
+                        <a href="case-study.html"
+                            class="material-symbols-outlined text-muted-gray group-hover:text-primary transition-colors text-4xl leading-none w-auto inline-block group-hover:translate-x-2">arrow_forward</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-charcoal text-gray-400 pt-32 pb-16 dark:bg-zinc-950 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-16 mb-32">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="text-2xl font-display text-white italic font-bold mb-8">Yash Patil</div>
+                    <p class="text-sm leading-relaxed max-w-xs font-sans">Software Developer building scalable AI
+                        systems and engaging web experiences.</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Capabilities</h5>
+                    <ul class="space-y-4 text-sm font-sans">
+                        <li><span class="text-gray-400">Python</span></li>
+                        <li><span class="text-gray-400">AI Integration</span></li>
+                        <li><span class="text-gray-400">Web Development</span></li>
+                        <li><span class="text-gray-400">C Programming</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Links</h5>
+                    <ul class="space-y-4 text-sm font-sans">
+                        <li><a class="hover:text-primary transition-colors" href="https://github.com/yash-dev007"
+                                target="_blank">GitHub</a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="https://www.linkedin.com/in/yash-patil-4a4aa329a" target="_blank">LinkedIn</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-colors" href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Contact</h5>
+                    <ul class="space-y-4 text-sm font-sans flex gap-6 mt-4">
+                        <li><a class="hover:text-primary transition-colors" href="https://github.com/yash-dev007"
+                                target="_blank"><span class="material-symbols-outlined text-3xl">public</span></a></li>
+                        <li><a class="hover:text-primary transition-colors" href="mailto:yashpatil76317@gmail.com"><span
+                                    class="material-symbols-outlined text-3xl">alternate_email</span></a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="https://www.linkedin.com/in/yash-patil-4a4aa329a" target="_blank"><span
+                                    class="material-symbols-outlined text-3xl">share</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800 gap-8 font-sans">
+                <div class="text-xs uppercase tracking-widest">© 2024 Yash Patil — All rights reserved
+                </div>
+                <div class="flex gap-8">
+                    <a class="text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Privacy</a>
+                    <a class="text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Terms</a>
+                </div>
+            </div>
         </div>
     </footer>
-<script src="script.js"></script>
+    <button
+        class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-white dark:bg-zinc-800 shadow-2xl flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform active:scale-95 z-50"
+        onclick="document.documentElement.classList.toggle('dark')">
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block text-white">light_mode</span>
+    </button>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
+
 </html>

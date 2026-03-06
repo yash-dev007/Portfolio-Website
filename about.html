@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>About | Creative Portfolio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D46D4D",
+                        "primary-hover": "#d9551a",
+                        "background-light": "#F9F7F2",
+                        "background-dark": "#121212",
+                        charcoal: "#1A1A1A",
+                        "muted-gray": "#666666",
+                        "border-sep": "#e7d7cf",
+                    },
+                    fontFamily: {
+                        display: ["Instrument Serif", "serif"],
+                        newsreader: ["Newsreader", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                        xl: '1.5rem',
+                        full: "9999px"
+                    },
+                    animation: {
+                        'ken-burns': 'kenburns 20s ease infinite alternate',
+                        'fade-up': 'fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'pulse-dot': 'pulseDot 2s infinite',
+                        'draw-line': 'drawLine 3s ease-out forwards',
+                        'gradient-pulse': 'gradientPulse 8s ease infinite',
+                    },
+                    keyframes: {
+                        kenburns: {
+                            '0%': { transform: 'scale(1) translate(0, 0)' },
+                            '100%': { transform: 'scale(1.15) translate(-2%, -2%)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseDot: {
+                            '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(212, 109, 77, 0.4)' },
+                            '50%': { transform: 'scale(1.2)', boxShadow: '0 0 0 10px rgba(212, 109, 77, 0)' },
+                        },
+                        drawLine: {
+                            '0%': { height: '0%' },
+                            '100%': { height: '100%' },
+                        },
+                        gradientPulse: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .reveal-on-scroll { opacity: 0; }
+            .reveal-on-scroll.active { animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+            .timeline-line-grow { height: 0; transition: height 2s ease-out; }
+            .form-underline {
+                border: none; border-bottom: 1px solid #d1d5db; background-color: transparent !important;
+                padding-left: 0; padding-right: 0; border-radius: 0;
+            }
+            .form-underline:focus { outline: none; box-shadow: none; border-bottom-color: var(--primary-orange); }
+            .map-tint { filter: sepia(0.4) saturate(1.5) hue-rotate(-20deg) contrast(1.1); }
+        }
+        .animate-delay-1 { animation-delay: 0.2s; }
+        .animate-delay-2 { animation-delay: 0.4s; }
+        .animate-delay-3 { animation-delay: 0.6s; }
+        
+        .pulse-shadow {
+            box-shadow: 0 0 0 0 rgba(212, 109, 77, 0.7);
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(212, 109, 77, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 109, 77, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 109, 77, 0); }
+        }
+        .gradient-canvas {
+            background: linear-gradient(-45deg, #121212, #3d2315, #D46D4D, #1A1A1A);
+            background-size: 400% 400%;
+            animation: gradientPulse 15s ease infinite;
+        }
+
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif-font { font-family: 'Instrument Serif', serif; }
+        .newsreader-font { font-family: 'Newsreader', serif; }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-charcoal dark:text-gray-100 transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="text-2xl font-display italic font-bold">Yash Patil</a>
+            </div>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="projects.html">Work</a>
+                <a class="text-sm font-medium text-primary transition-colors" href="about.html">About</a>
+                <a class="bg-charcoal dark:bg-gray-100 dark:text-charcoal text-white px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-all"
+                    href="contact.html">Get in touch</a>
+            </div>
+            <button class="md:hidden material-symbols-outlined text-3xl">menu</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <!-- About Section (from About_Me_with_Career_Timeline) -->
+        <section id="about" class="py-32 bg-white dark:bg-zinc-950">
+            <div class="max-w-7xl mx-auto px-6 md:px-20">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
+                    <div class="lg:col-span-5 order-2 lg:order-1">
+                        <div class="relative group overflow-hidden rounded-2xl shadow-2xl">
+                            <div
+                                class="absolute inset-0 bg-primary/10 z-10 pointer-events-none group-hover:bg-primary/0 transition-colors duration-700">
+                            </div>
+                            <div class="aspect-[4/5] w-full bg-slate-200 overflow-hidden bg-center bg-cover scale-110 animate-ken-burns"
+                                data-alt="Professional and approachable portrait of a creative professional in a soft-lit studio"
+                                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAIEAvJoYVOvjT3WA9OHzzQLrHD1kzmHCvsJgAY5orCLFVSatFeokVcqpcBss3mVTbjznIpzdl0Fvbz3XwOhrTB6sEjc43MVi7eOy9ObCN0EM6UsyTEyPrmuswQMsa6aYzI4im2C3_lOWdFy_QAmttlXVnlYiDZss0BPRVn10iZ15Sq6LrWaWtENG8Mm8cS2s8FzQqN0NOpUf92uCp3a_7cAlZS0JIpoBPVBH0kKPq3_ANix6guLw-aPWKiFYojezehj3_3CkOEejsB");'>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="lg:col-span-7 order-1 lg:order-2 flex flex-col gap-8 flex flex-col gap-8 animate-fade-up">
+                        <div class="space-y-8">
+                            <span
+                                class="text-primary font-bold tracking-[0.3em] uppercase text-xs opacity-0 animate-fade-up [animation-delay:200ms] [animation-fill-mode:forwards]">Story
+                                &amp; Vision</span>
+                            <h2
+                                class="text-charcoal dark:text-slate-100 text-5xl md:text-7xl font-semibold leading-[1] tracking-tight italic opacity-0 animate-fade-up [animation-delay:400ms] [animation-fill-mode:forwards]">
+                                Crafting digital experiences with <span class="text-primary not-italic">code &
+                                    design</span>.
+                            </h2>
+                            <p
+                                class="text-charcoal/70 dark:text-slate-300 text-xl md:text-2xl leading-relaxed font-light max-w-2xl opacity-0 animate-fade-up [animation-delay:600ms] [animation-fill-mode:forwards]">
+                                I am an engineering student and developer based in Nashik, India. Currently pursuing my
+                                BTech in Computer Science and Design, I specialize in Frontend Development, Python, and
+                                UI/UX Design.
+                            </p>
+                            <div
+                                class="h-px w-24 bg-primary/30 opacity-0 animate-fade-up [animation-delay:800ms] [animation-fill-mode:forwards]">
+                            </div>
+                            <p
+                                class="text-charcoal/70 dark:text-slate-300 text-lg md:text-xl leading-relaxed font-light max-w-2xl opacity-0 animate-fade-up [animation-delay:1000ms] [animation-fill-mode:forwards]">
+                                My approach bridges the gap between technical execution and visual storytelling. I've
+                                also been recognized for my work, including winning AIR 1 at NEC-IIT-B (2024) and
+                                placing as 1st Runner-Up at WEC '25.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Timeline -->
+        <section class="max-w-5xl mx-auto px-6 py-32 overflow-hidden bg-background-light dark:bg-background-dark">
+            <h2 class="text-charcoal dark:text-slate-100 text-4xl font-bold mb-24 text-center tracking-tight italic">The
+                Journey So Far</h2>
+            <div class="relative">
+                <div
+                    class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-border-sep hidden md:block overflow-hidden">
+                    <div class="w-full bg-primary h-full animate-draw-line origin-top"></div>
+                </div>
+                <div class="space-y-32">
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div
+                            class="hidden md:block w-1/2 pr-16 text-right opacity-0 animate-fade-up [animation-delay:300ms] [animation-fill-mode:forwards]">
+                            <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">Nov 2025 —
+                                Present</span>
+                            <h4 class="text-2xl font-bold mt-2">Design Team Lead</h4>
+                            <p class="text-muted-gray text-sm italic mt-1 font-medium">ECell MET</p>
+                        </div>
+                        <div
+                            class="z-10 size-5 rounded-full bg-primary ring-[12px] ring-background-light dark:ring-background-dark pulse-shadow">
+                        </div>
+                        <div
+                            class="w-full md:w-1/2 md:pl-16 mt-6 md:mt-0 opacity-0 animate-fade-up [animation-delay:500ms] [animation-fill-mode:forwards]">
+                            <div class="md:hidden mb-4">
+                                <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">Nov 2025 —
+                                    Present</span>
+                                <h4 class="text-2xl font-bold">Design Team Lead</h4>
+                                <p class="text-muted-gray text-sm italic">ECell MET</p>
+                            </div>
+                            <p class="text-charcoal/70 dark:text-slate-300 text-lg leading-relaxed font-light">
+                                Leading the design initiatives for the Entrepreneurship Cell. Orchestrating workflows
+                                and ensuring high-quality design output across web and graphic assets like Figma.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div
+                            class="w-full md:w-1/2 md:pr-16 md:text-right mt-6 md:mt-0 order-2 md:order-1 opacity-0 animate-fade-up [animation-delay:700ms] [animation-fill-mode:forwards]">
+                            <div class="md:hidden mb-4">
+                                <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">Oct 2024 — Nov
+                                    2025</span>
+                                <h4 class="text-2xl font-bold">Design Team Member</h4>
+                                <p class="text-muted-gray text-sm italic">ECell MET</p>
+                            </div>
+                            <p class="text-charcoal/70 dark:text-slate-300 text-lg leading-relaxed font-light">
+                                Contributed to the design team by rapidly delivering web and graphic designs, aiding the
+                                broader club initiatives.
+                            </p>
+                        </div>
+                        <div
+                            class="z-10 size-5 rounded-full bg-border-sep group-hover:bg-primary transition-all duration-500 ring-[12px] ring-background-light dark:ring-background-dark order-1 md:order-2 group-hover:scale-125 pulse-shadow">
+                        </div>
+                        <div
+                            class="hidden md:block w-1/2 pl-16 order-3 opacity-0 animate-fade-up [animation-delay:900ms] [animation-fill-mode:forwards]">
+                            <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">Oct 2024 — Nov
+                                2025</span>
+                            <h4 class="text-2xl font-bold mt-2">Design Team Member</h4>
+                            <p class="text-muted-gray text-sm italic mt-1 font-medium">ECell MET</p>
+                        </div>
+                    </div>
+                    <div class="relative flex flex-col md:flex-row items-center justify-between group">
+                        <div
+                            class="hidden md:block w-1/2 pr-16 text-right opacity-0 animate-fade-up [animation-delay:1100ms] [animation-fill-mode:forwards]">
+                            <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">Sep 2024 — Sep
+                                2028</span>
+                            <h4 class="text-2xl font-bold mt-2">BTech, Computer Science and Design</h4>
+                            <p class="text-muted-gray text-sm italic mt-1 font-medium">Mumbai Educational Trust</p>
+                        </div>
+                        <div
+                            class="z-10 size-5 rounded-full bg-border-sep group-hover:bg-primary transition-all duration-500 ring-[12px] ring-background-light dark:ring-background-dark group-hover:scale-125 pulse-shadow">
+                        </div>
+                        <div
+                            class="w-full md:w-1/2 md:pl-16 mt-6 md:mt-0 opacity-0 animate-fade-up [animation-delay:1300ms] [animation-fill-mode:forwards]">
+                            <div class="md:hidden mb-4">
+                                <span class="text-primary font-bold text-xs uppercase tracking-[0.2em]">Sep 2024 — Sep
+                                    2028</span>
+                                <h4 class="text-2xl font-bold">BTech, Computer Science and Design</h4>
+                                <p class="text-muted-gray text-sm italic">Mumbai Educational Trust</p>
+                            </div>
+                            <p class="text-charcoal/70 dark:text-slate-300 text-lg leading-relaxed font-light">
+                                Pursuing my undergraduate degree at MET League of Colleges, focusing on software
+                                development and design principles.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="bg-charcoal text-gray-400 pt-32 pb-16 dark:bg-zinc-950 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-16 mb-32">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="text-2xl font-display text-white italic font-bold mb-8">Yash Patil</div>
+                    <p class="text-sm leading-relaxed max-w-xs font-sans">Software Developer building scalable AI
+                        systems and engaging web experiences.</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Capabilities</h5>
+                    <ul class="space-y-4 text-sm font-sans">
+                        <li><span class="text-gray-400">Python</span></li>
+                        <li><span class="text-gray-400">AI Integration</span></li>
+                        <li><span class="text-gray-400">Web Development</span></li>
+                        <li><span class="text-gray-400">C Programming</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Links</h5>
+                    <ul class="space-y-4 text-sm font-sans">
+                        <li><a class="hover:text-primary transition-colors" href="https://github.com/yash-dev007"
+                                target="_blank">GitHub</a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="https://www.linkedin.com/in/yash-patil-4a4aa329a" target="_blank">LinkedIn</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-colors" href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Contact</h5>
+                    <ul class="space-y-4 text-sm font-sans flex gap-6 mt-4">
+                        <li><a class="hover:text-primary transition-colors" href="https://github.com/yash-dev007"
+                                target="_blank"><span class="material-symbols-outlined text-3xl">public</span></a></li>
+                        <li><a class="hover:text-primary transition-colors" href="mailto:yashpatil76317@gmail.com"><span
+                                    class="material-symbols-outlined text-3xl">alternate_email</span></a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="https://www.linkedin.com/in/yash-patil-4a4aa329a" target="_blank"><span
+                                    class="material-symbols-outlined text-3xl">share</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800 gap-8 font-sans">
+                <div class="text-xs uppercase tracking-widest">© 2024 Yash Patil — All rights reserved
+                </div>
+                <div class="flex gap-8">
+                    <a class="text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Privacy</a>
+                    <a class="text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button
+        class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-white dark:bg-zinc-800 shadow-2xl flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform active:scale-95 z-50"
+        onclick="document.documentElement.classList.toggle('dark')">
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block text-white">light_mode</span>
+    </button>
+
+</body>
+
+</html>

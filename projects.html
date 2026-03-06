@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Work | Creative Portfolio</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D46D4D",
+                        "primary-hover": "#d9551a",
+                        "background-light": "#F9F7F2",
+                        "background-dark": "#121212",
+                        charcoal: "#1A1A1A",
+                        "muted-gray": "#666666",
+                        "border-sep": "#e7d7cf",
+                    },
+                    fontFamily: {
+                        display: ["Instrument Serif", "serif"],
+                        newsreader: ["Newsreader", "serif"],
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.75rem",
+                        xl: '1.5rem',
+                        full: "9999px"
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'fade-up': 'fadeUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    }
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .serif-font { font-family: 'Instrument Serif', serif; }
+        .newsreader-font { font-family: 'Newsreader', serif; }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-charcoal dark:text-gray-100 transition-colors duration-300 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav
+        class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="text-2xl font-display italic font-bold">Yash Patil</a>
+            </div>
+            <div class="hidden md:flex items-center gap-10">
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html">Home</a>
+                <a class="text-sm font-medium text-primary transition-colors" href="projects.html">Work</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors" href="about.html">About</a>
+                <a class="bg-charcoal dark:bg-gray-100 dark:text-charcoal text-white px-5 py-2.5 rounded-full text-sm font-medium hover:opacity-90 transition-all"
+                    href="contact.html">Get in touch</a>
+            </div>
+            <button class="md:hidden material-symbols-outlined text-3xl">menu</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <section class="py-32 bg-background-light dark:bg-background-dark">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-24 animate-fade-up">
+                    <span class="material-symbols-outlined text-4xl mb-6 text-primary">cloud_done</span>
+                    <h1 class="text-6xl md:text-7xl font-display mb-6">Projects & Work</h1>
+                    <p class="text-xl text-muted-gray dark:text-gray-400 max-w-2xl mx-auto">Explore some of my notable
+                        open-source projects, ranging from AI applications to frontend web development.</p>
+                </div>
+
+                <div class="grid gap-6 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div
+                        class="group bg-white dark:bg-zinc-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row justify-between items-center gap-8">
+                        <div class="md:w-1/3">
+                            <h3 class="text-4xl mb-2">AltairGo Intelligence</h3>
+                            <p class="text-muted-gray dark:text-gray-400 font-medium italic">Python, Web App</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <p class="text-muted-gray dark:text-gray-400">An AI intelligence engine utilizing modern
+                                data analytics to deliver actionable insights, deployed on Vercel.</p>
+                        </div>
+                        <div class="md:w-1/6 text-right">
+                            <a href="https://github.com/yash-dev007/AltairGo-Intelligence" target="_blank"
+                                class="material-symbols-outlined text-muted-gray group-hover:text-primary transition-colors text-4xl leading-none w-auto inline-block">open_in_new</a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="group bg-white dark:bg-zinc-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row justify-between items-center gap-8">
+                        <div class="md:w-1/3">
+                            <h3 class="text-4xl mb-2">Esports Management</h3>
+                            <p class="text-muted-gray dark:text-gray-400 font-medium italic">HTML, CSS, Web System</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <p class="text-muted-gray dark:text-gray-400">A web-based Esports Tournament Management
+                                System built to effectively organize and track tournament progress.</p>
+                        </div>
+                        <div class="md:w-1/6 text-right">
+                            <a href="https://github.com/yash-dev007/Esports-Tournament-Management-System"
+                                target="_blank"
+                                class="material-symbols-outlined text-muted-gray group-hover:text-primary transition-colors text-4xl leading-none w-auto inline-block">open_in_new</a>
+                        </div>
+                    </div>
+
+                    <div
+                        class="group bg-white dark:bg-zinc-900 p-10 rounded-3xl border border-gray-100 dark:border-gray-800 hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row justify-between items-center gap-8">
+                        <div class="md:w-1/3">
+                            <h3 class="text-4xl mb-2">ECELL-WEB & TEC</h3>
+                            <p class="text-muted-gray dark:text-gray-400 font-medium italic">Frontend Dev</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <p class="text-muted-gray dark:text-gray-400">Contributions to entrepreneurship and tech
+                                club websites, showcasing modern HTML/CSS design implementations.</p>
+                        </div>
+                        <div class="md:w-1/6 text-right">
+                            <a href="https://github.com/yash-dev007/ECELL-WEB" target="_blank"
+                                class="material-symbols-outlined text-muted-gray group-hover:text-primary transition-colors text-4xl leading-none w-auto inline-block">open_in_new</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Unified Footer -->
+    <footer class="bg-charcoal text-gray-400 pt-32 pb-16 dark:bg-zinc-950 mt-auto border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-16 mb-32">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="text-2xl font-display text-white italic font-bold mb-8">Yash Patil</div>
+                    <p class="text-sm leading-relaxed max-w-xs font-sans">Software Developer building scalable AI
+                        systems and engaging web experiences.</p>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Capabilities</h5>
+                    <ul class="space-y-4 text-sm font-sans">
+                        <li><span class="text-gray-400">Python</span></li>
+                        <li><span class="text-gray-400">AI Integration</span></li>
+                        <li><span class="text-gray-400">Web Development</span></li>
+                        <li><span class="text-gray-400">C Programming</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Links</h5>
+                    <ul class="space-y-4 text-sm font-sans">
+                        <li><a class="hover:text-primary transition-colors" href="https://github.com/yash-dev007"
+                                target="_blank">GitHub</a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="https://www.linkedin.com/in/yash-patil-4a4aa329a" target="_blank">LinkedIn</a>
+                        </li>
+                        <li><a class="hover:text-primary transition-colors" href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-medium mb-6 font-sans">Contact</h5>
+                    <ul class="space-y-4 text-sm font-sans flex gap-6 mt-4">
+                        <li><a class="hover:text-primary transition-colors" href="https://github.com/yash-dev007"
+                                target="_blank"><span class="material-symbols-outlined text-3xl">public</span></a></li>
+                        <li><a class="hover:text-primary transition-colors" href="mailto:yashpatil76317@gmail.com"><span
+                                    class="material-symbols-outlined text-3xl">alternate_email</span></a></li>
+                        <li><a class="hover:text-primary transition-colors"
+                                href="https://www.linkedin.com/in/yash-patil-4a4aa329a" target="_blank"><span
+                                    class="material-symbols-outlined text-3xl">share</span></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800 gap-8 font-sans">
+                <div class="text-xs uppercase tracking-widest">© 2024 Yash Patil — All rights reserved
+                </div>
+                <div class="flex gap-8">
+                    <a class="text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Privacy</a>
+                    <a class="text-xs uppercase tracking-widest hover:text-white transition-colors" href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button
+        class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-white dark:bg-zinc-800 shadow-2xl flex items-center justify-center border border-gray-200 dark:border-gray-700 hover:scale-110 transition-transform active:scale-95 z-50"
+        onclick="document.documentElement.classList.toggle('dark')">
+        <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+        <span class="material-symbols-outlined hidden dark:block text-white">light_mode</span>
+    </button>
+
+</body>
+
+</html>
